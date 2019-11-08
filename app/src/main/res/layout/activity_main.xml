@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="wrap_content">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTextViewLessonName"
@@ -60,25 +60,33 @@
         android:layout_height="2dp"
         android:background="@color/colorAccent" />
 
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="300dp"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/linearLayoutRootLayout"/>
+            android:layout_height="300dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linearLayoutRootLayout"/>
 
 
-    </ScrollView>
+        </ScrollView>
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/buttonCalculateAverage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="8dp"
         android:onClick="calculateAverage"
         android:text="@string/calculate" />
 

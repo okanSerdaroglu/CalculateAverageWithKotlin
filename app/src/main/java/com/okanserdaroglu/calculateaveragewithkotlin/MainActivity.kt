@@ -24,16 +24,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         autoCompleteTextViewLessonName.setAdapter(adapter)
 
-        val inflater: LayoutInflater = LayoutInflater.from(this)
+        buttonAddLesson.setOnClickListener(this)
 
-        var newLessonView = inflater.inflate(R.layout.new_lesson_layout, null)
-
-        var lessonName: String = autoCompleteTextViewLessonName.text.toString()
-        var credit = spinnerCredit.selectedItem.toString()
-        var charNote = spinnerNote.selectedItem.toString()
-        newLessonView.autoCompleteTextViewLessonNameNewLesson.setText(lessonName)
-        spinnerCreditNewLesson.setSelection(findSelectedIndexInSpinner(spinnerCredit,credit))
-        spinnerNoteNewLesson.setSelection(findSelectedIndexInSpinner(spinnerNote,charNote))
 
 
     }
@@ -47,9 +39,33 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         if (view != null) {
 
+            val inflater: LayoutInflater = LayoutInflater.from(this)
+
+            var newLessonView = inflater.inflate(R.layout.new_lesson_layout, null)
+
             if (view.id == R.id.buttonAddLesson) {
 
+
+
+                var lessonName: String = autoCompleteTextViewLessonName.text.toString()
+                var credit = spinnerCredit.selectedItem.toString()
+                var charNote = spinnerNote.selectedItem.toString()
+                newLessonView.autoCompleteTextViewLessonNameNewLesson.setText(lessonName)
+                newLessonView.spinnerCreditNewLesson.setSelection(findSelectedIndexInSpinner(spinnerCredit,credit))
+                newLessonView.spinnerNoteNewLesson.setSelection(findSelectedIndexInSpinner(spinnerNote,charNote))
+
+                linearLayoutRootLayout.addView(newLessonView)
+
+                newLessonView.buttonRemoveLesson.setOnClickListener {
+
+                    linearLayoutRootLayout.removeView(newLessonView)
+
+                }
+
+
             } else if (view.id == R.id.buttonRemoveLesson) {
+
+                linearLayoutRootLayout.removeView(newLessonView)
 
             }
         }
