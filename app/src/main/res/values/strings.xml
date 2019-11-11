@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">CalculateAverageWithKotlin</string>
     <string name="calculate">Calculate</string>
+    <string name="average_note">Average Note</string>
 </resources>
